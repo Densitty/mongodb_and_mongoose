@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:connection": "nodemon test/connection_test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mocha": "^3.5.3",
-    "mongoose": "^4.13.21",
-    "nodemon": "^2.0.13"
+    "mongoose": "^4.13.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
