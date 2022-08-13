@@ -81,7 +81,7 @@ describe("Testing to update a document", () => {
   it("Increment the postCount on friend incremented by 1", (done) => {
     Friend.update({ name: "Joe" }, { $inc: { postCount: 1 } })
       .then(() => {
-        console.log(Friend);
+        // console.log(Friend);
         return Friend.findOne({ name: "Joe" });
       })
       .then((friend) => {

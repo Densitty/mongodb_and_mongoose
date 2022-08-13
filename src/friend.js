@@ -4,7 +4,14 @@ const Schema = mongoose.Schema;
 
 // create a schema of friends
 const FriendSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: [true, "Name is required."],
+    validate: {
+      validator: (name) => name.length >= 3,
+      message: "Name is required and must be at least 3 characters long.",
+    },
+  },
   postCount: Number,
 });
 
