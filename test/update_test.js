@@ -5,7 +5,7 @@ describe("Testing to update a document", () => {
   let joe;
 
   beforeEach((done) => {
-    joe = new Friend({ name: "Joe" });
+    joe = new Friend({ name: "Joe", postCount: 0 });
     joe.save().then(() => {
       done();
     });
@@ -15,7 +15,7 @@ describe("Testing to update a document", () => {
     assertion
       .then(() => Friend.find({}))
       .then((friends) => {
-        console.log(friends);
+        // console.log(friends);
         // test if total docs in collection is 1
         assert(friends.length === 1);
         // test if doc's name field has been changed
@@ -76,5 +76,18 @@ describe("Testing to update a document", () => {
       "Oleg",
       done
     );
+  });
+
+  it("Increment the postCount on friend incremented by 1", (done) => {
+    Friend.update({ name: "Joe" }, { $inc: { postCount: 1 } })
+      .then(() => {
+        console.log(Friend);
+        return Friend.findOne({ name: "Joe" });
+      })
+      .then((friend) => {
+        // console.log(friend._doc);
+        assert(friend._doc.postCount === 1);
+        done();
+      });
   });
 });
