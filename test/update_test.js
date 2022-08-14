@@ -24,33 +24,14 @@ describe("Testing to update a document", () => {
       });
   }
 
-  it("updating by set and save on instance", (done) => {
+  it("can update by set and save on instance", (done) => {
     // update the ppty/field
     joe.set("name", "Eric");
     // persist to db (use a helper function)
     assertNameHelperFunc(joe.save(), "Eric", done);
-    /* joe.save().then(() => {
-      // find all docs in the collection
-      Friend.find({}).then((friends) => {
-        console.log(friends[0]._doc);
-        // console.log(friends.length);
-        // test if total docs is 1
-        assert(friends.length === 1);
-        // test if doc's name field has been changed
-        assert(friends[0]._doc.name === "Eric");
-        done();
-      });
-    }); */
   });
 
-  it("Updating a doc based on model instance", (done) => {
-    // joe.update({ name: "Erica" });
-    // joe.save().then(() => {
-    //   Friend.find({ name: "Joe" }).then((friends) => {
-    //     console.log(friends);
-    //   });
-    //   done();
-    // });
+  it("Can update a doc based on model instance", (done) => {
     assertNameHelperFunc(joe.update({ name: "Adrian" }), "Adrian", done);
   });
 
