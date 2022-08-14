@@ -1,5 +1,5 @@
 const assert = require("assert");
-const Friend = require("../src/friend");
+const Friend = require("../src/friendSchema");
 
 describe("Test to read a friend from a db", () => {
   let joe;

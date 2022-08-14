@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const PostSchema = require("./postSchema");
 
 const Schema = mongoose.Schema;
 
@@ -13,6 +14,7 @@ const FriendSchema = new Schema({
     },
   },
   postCount: Number,
+  posts: [PostSchema],
 });
 
 // create a model from the schema

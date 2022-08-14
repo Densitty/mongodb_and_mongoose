@@ -1,6 +1,6 @@
 const { doesNotMatch } = require("assert");
 const assert = require("assert");
-const Friend = require("../src/friend");
+const Friend = require("../src/friendSchema");
 
 describe("Validating records", () => {
   it("friend requires a name", (done) => {
