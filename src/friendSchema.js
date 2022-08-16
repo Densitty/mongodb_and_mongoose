@@ -17,6 +17,7 @@ const FriendSchema = new Schema({
   likes: Number,
 });
 
+// a virtual field on a model
 FriendSchema.virtual("postCount").get(function () {
   // console.log(this._doc.posts.length);
   return this.posts.length;
