@@ -5,7 +5,7 @@ describe("Testing to update a document", () => {
   let joe;
 
   beforeEach((done) => {
-    joe = new Friend({ name: "Joe", postCount: 0 });
+    joe = new Friend({ name: "Joe", likes: 0 });
     joe.save().then(() => {
       done();
     });
@@ -59,15 +59,15 @@ describe("Testing to update a document", () => {
     );
   });
 
-  it("Increment the postCount on friend incremented by 1", (done) => {
-    Friend.update({ name: "Joe" }, { $inc: { postCount: 1 } })
+  it("Increment the likes on friend incremented by 1", (done) => {
+    Friend.update({ name: "Joe" }, { $inc: { likes: 1 } })
       .then(() => {
         // console.log(Friend);
         return Friend.findOne({ name: "Joe" });
       })
       .then((friend) => {
         // console.log(friend._doc);
-        assert(friend._doc.postCount === 1);
+        assert(friend._doc.likes === 1);
         done();
       });
   });

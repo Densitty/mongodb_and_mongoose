@@ -13,8 +13,13 @@ const FriendSchema = new Schema({
       message: "Name is required and must be at least 3 characters long.",
     },
   },
-  postCount: Number,
   posts: [PostSchema],
+  likes: Number,
+});
+
+FriendSchema.virtual("postCount").get(function () {
+  // console.log(this._doc.posts.length);
+  return this.posts.length;
 });
 
 // create a model from the schema
