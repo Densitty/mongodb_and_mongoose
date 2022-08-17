@@ -17,8 +17,12 @@ before((done) => {
 });
 
 beforeEach((done) => {
-  mongoose.connection.collections.friends.drop(() => {
-    // ready to run the next test after collection has been dropped
-    done();
+  const { friends, comments, blogposts } = mongoose.connection.collections;
+  friends.drop(() => {
+    comments.drop(() => {
+      blogposts.drop(() => {
+        done();
+      });
+    });
   });
 });

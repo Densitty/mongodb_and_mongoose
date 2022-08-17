@@ -14,6 +14,7 @@ const FriendSchema = new Schema({
     },
   },
   posts: [PostSchema],
+  blogPosts: [{ type: Schema.Types.ObjectId, ref: "blogPost" }],
   likes: Number,
 });
 
